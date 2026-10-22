@@ -1,0 +1,15 @@
+# Render blueprint for the Python API (Docker) — FREE plan.
+# Free web services have no persistent disk: uploads/database are wiped on every restart, redeploy and after
+# ~15 min idle spin-down (first request after idle takes ~50 s). Fine for temporary transfers and demos.
+# For durable storage: set plan: starter and uncomment the disk line.
+services:
+  - type: web
+    name: relaydrop-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    # disk: { name: relaydrop-data, mountPath: /data, sizeGB: 5 }
+    envVars:
+      - { key: ADMIN_KEY, generateValue: true }          # shown in the Render dashboard; used to open /admin.html
+      - { key: CORS_ORIGINS, sync: false }               # https://YOUR-SITE.netlify.app
+      - { key: SERVE_FRONTEND, value: "0" }
