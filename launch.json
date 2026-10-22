@@ -1,0 +1,9 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    { "name": "RelayDrop (Flask)", "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/backend/run.py",
+      "cwd": "${workspaceFolder}/backend", "console": "integratedTerminal", "env": { "FLASK_DEBUG": "1" } },
+    { "name": "RelayDrop tests", "type": "debugpy", "request": "launch", "module": "unittest",
+      "args": ["discover", "-s", "tests", "-v"], "cwd": "${workspaceFolder}/backend", "console": "integratedTerminal" }
+  ]
+}

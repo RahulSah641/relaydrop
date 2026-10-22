@@ -1,0 +1,10 @@
+{
+  "name": "RelayDrop",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "pip install -r backend/requirements.txt && cp -n backend/.env.example backend/.env || true",
+  "postAttachCommand": "cd backend && python run.py",
+  "containerEnv": { "HOST": "0.0.0.0", "PORT": "5000", "TRUST_PROXY": "1" },
+  "forwardPorts": [5000],
+  "portsAttributes": { "5000": { "label": "RelayDrop", "onAutoForward": "openBrowser" } },
+  "customizations": { "vscode": { "extensions": ["ms-python.python"] } }
+}
